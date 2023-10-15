@@ -10,6 +10,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/tokens", async (req, res) => {
+  console.log("req:", req)
   const params = req.params;
   const payload = req.body;
   const headers = req.headers;
