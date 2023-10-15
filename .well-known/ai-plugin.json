@@ -11,12 +11,12 @@
       "authorization_url": "https://api.medium.com/v1/tokens",
       "authorization_content_type": "application/json",
       "verification_tokens": {
-        "openai": "Replace_this_string_with_the_verification_token_generated_in_the_ChatGPT_UI"
+        "openai":"30fcc8cd3c7a4674b7cf62df170650bd"
       }
     },
     "api": {
         "type": "openapi",
-        "url": "https://github.com/MakeItAwesome/medium-gpt/blob/main/openapi.yaml"
+        "url": "https://89a861458fe2.ngrok.app/openapi.yaml"
     },
     "logo_url": "https://github.com/MakeItAwesome/medium-gpt/blob/main/logo.png",
     "contact_email": "mediumgptplugin@gmail.com",
