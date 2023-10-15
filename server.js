@@ -9,11 +9,23 @@ app.get("/", (req, res) => {
   res.send("Hello, World!");
 });
 
+function prepareHeaders(headers) {
+  return {
+    Host: "api.medium.com",
+    Authorization: headers.authorization,
+    "Content-Type": "application/json",
+    Accept: "application/json",
+    "Accept-Charset": "utf-8",
+  }
+}
+
 // Passthrough route for creating a post on the authenticated user's profile
 app.post("/users/:authorId/posts", async (req, res) => {
   const { authorId } = req.params;
   const payload = req.body;
-  const headers = req.headers;
+  const headers = prepareHeaders(req.headers)
+  console.log("req.headers", req.headers)
+  console.log("req.headers", req.headers.authorization)
 
   try {
     const response = await axios.post(
@@ -33,9 +45,7 @@ app.post("/users/:authorId/posts", async (req, res) => {
 app.post("/publications/:publicationId/posts", async (req, res) => {
   const { publicationId } = req.params;
   const payload = req.body;
-  const headers = req.headers;
-
-  console.log("req.headers", req.headers)
+  const headers = prepareHeaders(req.headers)
 
   try {
     const response = await axios.post(
