@@ -3,7 +3,7 @@ info:
   title: Medium API
   version: "1.0"
 servers:
-  - url: https://api.medium.com/v1
+  - url: http://mediumgpt.co
 paths:
   /users/{authorId}/posts:
     post:
