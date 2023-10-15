@@ -15,8 +15,6 @@ app.post("/users/:authorId/posts", async (req, res) => {
   const payload = req.body;
   const headers = req.headers;
 
-  console.log("req.headers", req.headers)
-
   try {
     const response = await axios.post(
       `https://api.medium.com/v1/users/${authorId}/posts`,
@@ -25,6 +23,7 @@ app.post("/users/:authorId/posts", async (req, res) => {
     );
     res.status(201).json(response.data);
   } catch (error) {
+    console.log('error', error)
     res.status(error.response?.status || 500).json(error.response?.data || {});
   }
 });
