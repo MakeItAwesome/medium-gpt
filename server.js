@@ -44,13 +44,24 @@ function prepareHeaders(headers) {
 }
 
 // Passthrough route for getting user's info
-app.get("/me", async (req, res) => {
-    try {
-    const response = await axios.get(`https://api.medium.com/v1/me`, req.body)
-    res.status(201).json(response.data);
-  } catch (error) {
-    res.status(error.response?.status || 500).json(error.response?.data || {});
-  }
+app.get("/me", jsonParser, async (req, res) => {
+  try {
+    const token = req.headers.authorization;
+
+    if (!token) {
+      return res.status(400).json({ error: 'Authorization token is required' });
+    }
+
+    const mediumResponse = await axios.get('https://api.medium.com/v1/me', {
+      headers: {
+          'Authorization': token
+      }
+    });
+
+    res.status(201).json(mediumResponse.data);
+} catch (error) {
+    res.status(500).json({ error: 'Failed to forward the request to Medium' });
+}
 });
 
 // Passthrough route for creating a post on the authenticated user's profile
