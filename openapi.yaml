@@ -3,7 +3,7 @@ info:
   title: Medium API
   version: "1.0"
 servers:
-  - url: http://mediumgpt.co
+  - url: https://medium-gpt-43dd525e084a.herokuapp.com
 paths:
   /users/{authorId}/posts:
     post:

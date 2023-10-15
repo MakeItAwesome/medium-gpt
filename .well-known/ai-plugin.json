@@ -16,9 +16,9 @@
     },
     "api": {
         "type": "openapi",
-        "url": "http://mediumgpt.co/openapi.yaml"
+        "url": "https://medium-gpt-43dd525e084a.herokuapp.com/openapi.yaml"
     },
-    "logo_url": "http://mediumgpt.co/logo.png",
+    "logo_url": "https://medium-gpt-43dd525e084a.herokuapp.com/logo.png",
     "contact_email": "mediumgptplugin@gmail.com",
-    "legal_info_url": "http://mediumgpt.co/license.txt"
+    "legal_info_url": "https://medium-gpt-43dd525e084a.herokuapp.com/license.txt"
 }
