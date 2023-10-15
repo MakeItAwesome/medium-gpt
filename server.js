@@ -55,7 +55,7 @@ app.get("/me", jsonParser, async (req, res) => {
   const headers = prepareHeaders(req.headers);
 
   try {
-    const response = await axios.post(
+    const response = await axios.get(
       `https://api.medium.com/v1/me`, payload, {
         headers,
       }
