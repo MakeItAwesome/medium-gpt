@@ -60,6 +60,6 @@ app.get("/openapi.yaml", async (req, res) => {
   res.set("Content-Type", "text/yaml").send(text);
 });
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
   console.log(`Server running at http://localhost:${port}/`);
 });
