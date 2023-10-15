@@ -14,13 +14,9 @@ app.get("/", (req, res) => {
 });
 
 app.post("/tokens", urlencodedParser, async (req, res) => {
-  // console.log("req:", req)
   const params = req.params;
   const payload = req.body;
   const headers = req.headers;
-  console.log("params:", params);
-  console.log("payload:", payload);
-  console.log("headers:", headers);
 
   try {
     const response = await axios.post(
@@ -31,10 +27,8 @@ app.post("/tokens", urlencodedParser, async (req, res) => {
     const expires_in = response.data.expires_at - Date.now();
     response.data.expires_in = expires_in;
     response.data.token_type = "bearer";
-    console.log("Logged Response:", response.data); // Logging the response
     res.status(200).json(response.data);
   } catch (error) {
-    console.log("Error:", error); // Logging the error
     res.status(error.response?.status || 500).json(error.response?.data || {});
   }
 });
@@ -50,24 +44,11 @@ function prepareHeaders(headers) {
 }
 
 // Passthrough route for getting user's info
-app.get("/me", jsonParser, async (req, res) => {
-  const payload = req.body;
-  // const headers = prepareHeaders(req.headers);
-  // console.log("parsed headers:", headers);
-
-  try {
+app.get("/me", async (req, res) => {
+    try {
     const response = await axios.get(`https://api.medium.com/v1/me`, req.body)
-    // const response = await axios.get(
-    //   `https://api.medium.com/v1/me`, payload, {
-    //     headers,
-    //   }
-    // );
-    // console.log("request.headers:", request.headers);
-    // console.log("me data:", response.data)
     res.status(201).json(response.data);
   } catch (error) {
-    console.log("$$ error.response?.status", error.response?.status);
-    console.log("$$ error.response?.data", error.response?.data);
     res.status(error.response?.status || 500).json(error.response?.data || {});
   }
 });
@@ -75,12 +56,8 @@ app.get("/me", jsonParser, async (req, res) => {
 // Passthrough route for creating a post on the authenticated user's profile
 app.post("/users/:authorId/posts", jsonParser, async (req, res) => {
   const { authorId } = req.params;
-  console.log(authorId);
   const payload = req.body;
-  console.log(payload);
   const headers = prepareHeaders(req.headers);
-  console.log("req.headers", headers);
-  console.log("req.headers", headers.authorization);
 
   try {
     const response = await axios.post(
@@ -90,8 +67,6 @@ app.post("/users/:authorId/posts", jsonParser, async (req, res) => {
     );
     res.status(201).json(response.data);
   } catch (error) {
-    console.log("$$ error.response?.status", error.response?.status);
-    console.log("$$ error.response?.data", error.response?.data);
     res.status(error.response?.status || 500).json(error.response?.data || {});
   }
 });
