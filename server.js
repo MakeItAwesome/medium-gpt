@@ -53,6 +53,7 @@ function prepareHeaders(headers) {
 app.get("/me", jsonParser, async (req, res) => {
   const payload = req.body;
   const headers = prepareHeaders(req.headers);
+  console.log("parsed headers:", headers);
 
   try {
     const response = await axios.get(
@@ -60,7 +61,7 @@ app.get("/me", jsonParser, async (req, res) => {
         headers,
       }
     );
-    console.log(request.headers);
+    console.log("request.headers:", request.headers);
     console.log("me data:", response.data)
     res.status(201).json(response.data);
   } catch (error) {
