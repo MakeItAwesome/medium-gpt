@@ -11,7 +11,7 @@
       "authorization_url": "https://api.medium.com/v1/tokens",
       "authorization_content_type": "application/json",
       "verification_tokens": {
-        "openai":"30fcc8cd3c7a4674b7cf62df170650bd"
+        "openai":"bd72c6b8c95841f1af6cef5ea0e0f57c"
       }
     },
     "api": {
