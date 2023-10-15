@@ -4,19 +4,23 @@ const port = 3000;
 const axios = require("axios");
 const fs = require("fs").promises;
 const path = require("path");
+var bodyParser = require('body-parser')
+
+var jsonParser = bodyParser.json()
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.get("/", (req, res) => {
   res.send("Hello, World!");
 });
 
-app.post("/tokens", async (req, res) => {
-  console.log("req:", req)
+app.post("/tokens", urlencodedParser, async (req, res) => {
+  // console.log("req:", req)
   const params = req.params;
   const payload = req.body;
   const headers = req.headers;
-  // console.log("params:", params);
-  // console.log("payload:", payload);
-  // console.log("headers:", headers);
+  console.log("params:", params);
+  console.log("payload:", payload);
+  console.log("headers:", headers);
 
   try {
     const response = await axios.post(
