@@ -53,12 +53,16 @@ function prepareHeaders(headers) {
 // Passthrough route for getting user's info
 app.get("/me", async (req, res) => {
   const payload = req.body;
+  const headers = prepareHeaders(req.headers);
 
   try {
     const response = await axios.post(
       `https://api.medium.com/v1/me`,
-      payload
+      payload,
+      headers,
     );
+    console.log(request.headers);
+    console.log("me data:", response.data)
     res.status(201).json(response.data);
   } catch (error) {
     console.log("$$ error.response?.status", error.response?.status);
@@ -79,7 +83,7 @@ app.post("/users/:authorId/posts", async (req, res) => {
     const response = await axios.post(
       `https://api.medium.com/v1/users/${authorId}/posts`,
       payload,
-      headers
+      headers,
     );
     res.status(201).json(response.data);
   } catch (error) {
@@ -99,7 +103,7 @@ app.post("/publications/:publicationId/posts", async (req, res) => {
     const response = await axios.post(
       `https://api.medium.com/v1/publications/${publicationId}/posts`,
       payload,
-      headers
+      headers,
     );
     res.status(201).json(response.data);
   } catch (error) {
@@ -120,7 +124,6 @@ app.get("/.well-known/ai-plugin.json", async (req, res) => {
 });
 
 app.get("/openapi.yaml", async (req, res) => {
-  const host = req.headers.host;
   const filePath = path.join(__dirname, "openapi.yaml");
   const text = await fs.readFile(filePath, "utf8");
   res.set("Content-Type", "text/yaml").send(text);
