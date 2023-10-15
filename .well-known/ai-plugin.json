@@ -11,7 +11,7 @@
       "authorization_url": "https://medium-gpt-43dd525e084a.herokuapp.com/tokens",
       "authorization_content_type": "application/x-www-form-urlencoded",
       "verification_tokens": {
-        "openai":"aac760ba9a754a5cae30330dd3513386"
+        "openai":"807468e67bdd476f87b462492f3e479f"
       }
     },
     "api": {
