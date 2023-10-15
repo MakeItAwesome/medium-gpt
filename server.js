@@ -9,6 +9,28 @@ app.get("/", (req, res) => {
   res.send("Hello, World!");
 });
 
+app.get("/tokens", async (req, res) => {
+  const params = req.params;
+  const payload = req.body;
+  const headers = req.headers;
+  console.log("params:", params);
+  console.log("payload:", payload);
+  console.log("headers:", headers);
+
+  try {
+    const response = await axios.post(
+      `https://api.medium.com/v1/tokens${`?${params}`}`,
+      payload,
+      headers
+    );
+    console.log("Logged Response:", response.data); // Logging the response
+    res.status(200).json(response.data);
+  } catch (error) {
+    console.log("Error:", error); // Logging the error
+    res.status(error.response?.status || 500).json(error.response?.data || {});
+  }
+});
+
 function prepareHeaders(headers) {
   return {
     Host: "api.medium.com",
@@ -16,27 +38,27 @@ function prepareHeaders(headers) {
     "Content-Type": "application/json",
     Accept: "application/json",
     "Accept-Charset": "utf-8",
-  }
+  };
 }
 
 // Passthrough route for creating a post on the authenticated user's profile
 app.post("/users/:authorId/posts", async (req, res) => {
   const { authorId } = req.params;
   const payload = req.body;
-  const headers = prepareHeaders(req.headers)
-  console.log("req.headers", headers)
-  console.log("req.headers", headers.authorization)
+  const headers = prepareHeaders(req.headers);
+  console.log("req.headers", headers);
+  console.log("req.headers", headers.authorization);
 
   try {
     const response = await axios.post(
       `https://api.medium.com/v1/users/${authorId}/posts`,
       payload,
-      headers,
+      headers
     );
     res.status(201).json(response.data);
   } catch (error) {
-    console.log('$$ error.response?.status', error.response?.status)
-    console.log('$$ error.response?.data', error.response?.data)
+    console.log("$$ error.response?.status", error.response?.status);
+    console.log("$$ error.response?.data", error.response?.data);
     res.status(error.response?.status || 500).json(error.response?.data || {});
   }
 });
@@ -45,13 +67,13 @@ app.post("/users/:authorId/posts", async (req, res) => {
 app.post("/publications/:publicationId/posts", async (req, res) => {
   const { publicationId } = req.params;
   const payload = req.body;
-  const headers = prepareHeaders(req.headers)
+  const headers = prepareHeaders(req.headers);
 
   try {
     const response = await axios.post(
       `https://api.medium.com/v1/publications/${publicationId}/posts`,
       payload,
-      headers,
+      headers
     );
     res.status(201).json(response.data);
   } catch (error) {

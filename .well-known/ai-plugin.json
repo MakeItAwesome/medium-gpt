@@ -8,7 +8,7 @@
       "type": "oauth",
       "client_url": "https://medium.com/m/oauth/authorize",
       "scope": "basicProfile,publishPost",
-      "authorization_url": "https://api.medium.com/v1/tokens",
+      "authorization_url": "https://medium-gpt-43dd525e084a.herokuapp.com/tokens",
       "authorization_content_type": "application/x-www-form-urlencoded",
       "verification_tokens": {
         "openai":"12d7781136764b858b5309eaf6390af3"
