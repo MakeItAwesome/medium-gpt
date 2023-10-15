@@ -9,7 +9,7 @@ app.get("/", (req, res) => {
   res.send("Hello, World!");
 });
 
-app.get("/tokens", async (req, res) => {
+app.post("/tokens", async (req, res) => {
   const params = req.params;
   const payload = req.body;
   const headers = req.headers;
