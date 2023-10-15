@@ -75,6 +75,7 @@ app.get("/me", jsonParser, async (req, res) => {
 // Passthrough route for creating a post on the authenticated user's profile
 app.post("/users/:authorId/posts", jsonParser, async (req, res) => {
   const { authorId } = req.params;
+  console.log(authorId);
   const payload = req.body;
   const headers = prepareHeaders(req.headers);
   console.log("req.headers", headers);
