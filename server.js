@@ -13,11 +13,13 @@ app.get("/", (req, res) => {
 app.post("/users/:authorId/posts", async (req, res) => {
   const { authorId } = req.params;
   const payload = req.body;
+  const headers = req.headers;
 
   try {
     const response = await axios.post(
       `https://api.medium.com/v1/users/${authorId}/posts`,
-      payload
+      payload,
+      headers,
     );
     res.status(201).json(response.data);
   } catch (error) {
@@ -29,11 +31,13 @@ app.post("/users/:authorId/posts", async (req, res) => {
 app.post("/publications/:publicationId/posts", async (req, res) => {
   const { publicationId } = req.params;
   const payload = req.body;
+  const headers = req.headers;
 
   try {
     const response = await axios.post(
       `https://api.medium.com/v1/publications/${publicationId}/posts`,
-      payload
+      payload,
+      headers,
     );
     res.status(201).json(response.data);
   } catch (error) {
