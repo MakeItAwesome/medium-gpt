@@ -15,6 +15,8 @@ app.post("/users/:authorId/posts", async (req, res) => {
   const payload = req.body;
   const headers = req.headers;
 
+  console.log("req.headers", req.headers)
+
   try {
     const response = await axios.post(
       `https://api.medium.com/v1/users/${authorId}/posts`,
@@ -32,6 +34,8 @@ app.post("/publications/:publicationId/posts", async (req, res) => {
   const { publicationId } = req.params;
   const payload = req.body;
   const headers = req.headers;
+
+  console.log("req.headers", req.headers)
 
   try {
     const response = await axios.post(
