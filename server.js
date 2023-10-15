@@ -23,7 +23,8 @@ app.post("/users/:authorId/posts", async (req, res) => {
     );
     res.status(201).json(response.data);
   } catch (error) {
-    console.log('error', error)
+    console.log('$$ error.response?.status', error.response?.status)
+    console.log('$$ error.response?.data', error.response?.data)
     res.status(error.response?.status || 500).json(error.response?.data || {});
   }
 });
