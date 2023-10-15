@@ -14,13 +14,14 @@ app.post("/tokens", async (req, res) => {
   const params = req.params;
   const payload = req.body;
   const headers = req.headers;
-  console.log("params:", params);
-  console.log("payload:", payload);
-  console.log("headers:", headers);
+  // console.log("params:", params);
+  // console.log("payload:", payload);
+  // console.log("headers:", headers);
 
   try {
     const response = await axios.post(
-      `https://api.medium.com/v1/tokens${`?${params}`}`,
+      `https://api.medium.com/v1/tokens`,
+      // { params },
       payload,
       headers
     );
