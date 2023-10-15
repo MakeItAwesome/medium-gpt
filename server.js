@@ -24,8 +24,8 @@ app.post("/users/:authorId/posts", async (req, res) => {
   const { authorId } = req.params;
   const payload = req.body;
   const headers = prepareHeaders(req.headers)
-  console.log("req.headers", req.headers)
-  console.log("req.headers", req.headers.authorization)
+  console.log("req.headers", headers)
+  console.log("req.headers", headers.authorization)
 
   try {
     const response = await axios.post(
