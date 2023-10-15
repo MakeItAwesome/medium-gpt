@@ -77,6 +77,7 @@ app.post("/users/:authorId/posts", jsonParser, async (req, res) => {
   const { authorId } = req.params;
   console.log(authorId);
   const payload = req.body;
+  console.log(payload);
   const headers = prepareHeaders(req.headers);
   console.log("req.headers", headers);
   console.log("req.headers", headers.authorization);
