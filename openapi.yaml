@@ -5,6 +5,38 @@ info:
 servers:
   - url: https://medium-gpt-43dd525e084a.herokuapp.com
 paths:
+  /me:
+    get:
+      operationId: getAuthenticatedUserDetails
+      summary: Returns details of the user who has granted permission to the application.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        description: A unique identifier for the user.
+                      username:
+                        type: string
+                        description: The user’s username on Medium.
+                      name:
+                        type: string
+                        description: The user’s name on Medium.
+                      url:
+                        type: string
+                        description: The URL to the user’s profile on Medium.
+                      imageUrl:
+                        type: string
+                        description: The URL to the user’s avatar on Medium.
+        '401':
+          description: Unauthorized
   /users/{authorId}/posts:
     post:
       operationId: createUserPost

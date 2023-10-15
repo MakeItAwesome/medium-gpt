@@ -50,6 +50,23 @@ function prepareHeaders(headers) {
   };
 }
 
+// Passthrough route for getting user's info
+app.post("/me", async (req, res) => {
+  const payload = req.body;
+
+  try {
+    const response = await axios.post(
+      `https://api.medium.com/v1/me`,
+      payload
+    );
+    res.status(201).json(response.data);
+  } catch (error) {
+    console.log("$$ error.response?.status", error.response?.status);
+    console.log("$$ error.response?.data", error.response?.data);
+    res.status(error.response?.status || 500).json(error.response?.data || {});
+  }
+});
+
 // Passthrough route for creating a post on the authenticated user's profile
 app.post("/users/:authorId/posts", async (req, res) => {
   const { authorId } = req.params;
