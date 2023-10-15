@@ -51,7 +51,7 @@ function prepareHeaders(headers) {
 }
 
 // Passthrough route for getting user's info
-app.post("/me", async (req, res) => {
+app.get("/me", async (req, res) => {
   const payload = req.body;
 
   try {
