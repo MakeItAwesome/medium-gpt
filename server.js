@@ -29,6 +29,9 @@ app.post("/tokens", urlencodedParser, async (req, res) => {
       payload,
       headers
     );
+    const expires_in = response.data.expires_at - Date.now();
+    response.data.expires_in = expires_in;
+    response.data.token_type = "bearer";
     console.log("Logged Response:", response.data); // Logging the response
     res.status(200).json(response.data);
   } catch (error) {
