@@ -52,17 +52,18 @@ function prepareHeaders(headers) {
 // Passthrough route for getting user's info
 app.get("/me", jsonParser, async (req, res) => {
   const payload = req.body;
-  const headers = prepareHeaders(req.headers);
-  console.log("parsed headers:", headers);
+  // const headers = prepareHeaders(req.headers);
+  // console.log("parsed headers:", headers);
 
   try {
-    const response = await axios.get(
-      `https://api.medium.com/v1/me`, payload, {
-        headers,
-      }
-    );
-    console.log("request.headers:", request.headers);
-    console.log("me data:", response.data)
+    const response = await axios.get(`https://api.medium.com/v1/me`, req.body)
+    // const response = await axios.get(
+    //   `https://api.medium.com/v1/me`, payload, {
+    //     headers,
+    //   }
+    // );
+    // console.log("request.headers:", request.headers);
+    // console.log("me data:", response.data)
     res.status(201).json(response.data);
   } catch (error) {
     console.log("$$ error.response?.status", error.response?.status);
