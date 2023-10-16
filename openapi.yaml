@@ -172,7 +172,27 @@ paths:
                         type: string
                       publicationId:
                         type: string
-                      # ... other fields similar to the first endpoint ...
+                      title:
+                        type: string
+                      authorId:
+                        type: string
+                      tags:
+                        type: array
+                        items:
+                          type: string
+                      url:
+                        type: string
+                      canonicalUrl:
+                        type: string
+                      publishStatus:
+                        type: string
+                      publishedAt:
+                        type: integer
+                        format: int64
+                      license:
+                        type: string
+                      licenseUrl:
+                        type: string
         '400':
           description: Bad Request
         '401':
