@@ -24,8 +24,8 @@ app.post("/tokens", urlencodedParser, async (req, res) => {
         headers,
       }
     );
-    const expires_in = response.data.expires_at - Date.now();
-    response.data.expires_in = expires_in;
+    const expires_in_millis = response.data.expires_at - Date.now();
+    response.data.expires_in = expires_in_millis / 1000; // chat GPT wants the expires_in to be in seconds
     response.data.token_type = "bearer";
     res.status(200).json(response.data);
   } catch (error) {
