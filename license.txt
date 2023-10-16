@@ -1,0 +1,37 @@
+MediumGPT License Agreement
+Last Updated: October 15th
+
+1. ACCEPTANCE:
+By using MediumGPT ("Plugin"), you accept these terms. If you disagree, do not use the Plugin.
+
+2. LICENSE:
+MediumGPT grants you a non-exclusive, non-transferable license for personal, non-commercial use.
+
+3. RESTRICTIONS:
+- Do not reverse engineer or decompile the Plugin.
+- Do not rent, lease, sell, or sublicense the Plugin.
+- Do not remove any proprietary notices.
+
+4. PRIVACY:
+Refer to our Privacy Policy for data collection and usage.
+
+5. TERMINATION:
+MediumGPT can terminate or suspend your access anytime without notice.
+
+6. DISCLAIMER:
+The Plugin is provided "as is" without warranties of any kind.
+
+7. LIABILITY:
+MediumGPT and its associates aren't liable for any damages from using or misusing the Plugin. By using, you agree not to sue or claim against MediumGPT or its associates.
+
+8. MEDIUM'S TERMS:
+Comply with Medium's Terms of Service. Violations may lead to Plugin access termination.
+
+9. CHANGES:
+MediumGPT can modify these terms. Continued use after changes means you accept the new terms.
+
+10. LAW:
+These terms are governed by the laws of CA, US.
+
+11. CONTACT:
+Questions? Contact us at mediumgptplugin@gmail.com.
