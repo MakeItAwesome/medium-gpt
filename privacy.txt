@@ -18,7 +18,7 @@ Medium Mastermind does not share any user data as we do not collect or store it.
 Since we do not collect user data, Medium Mastermind does not directly handle requests regarding user data rights. Such requests should be directed to ChatGPT or Medium.com, depending on where the data resides.
 
 **6. Changes to This Privacy Policy**
-This Privacy Policy may be updated periodically. We will not notify users of these changes directly as we do not hold contact information. Users are encouraged to review this policy periodically via GPT's user interface.
+This Privacy Policy may be updated periodically. We will not notify users of these changes directly as we do not hold contact information. Users are encouraged to review this policy periodically at https://mediumgpt.co/privacy.txt.
 
 **7. Compliance with Medium.com and ChatGPT Terms**
 Users of Medium Mastermind must adhere to the terms and service agreements of both Medium.com and ChatGPT. Medium Mastermind cannot be held liable for any violations of these terms.
