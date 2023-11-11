@@ -123,6 +123,12 @@ app.get("/license.txt", async (_, res) => {
   res.set("Content-Type", "text/plain").send(text);
 });
 
+app.get("/privacy.txt", async (_, res) => {
+  const filePath = path.join(__dirname, "privacy.txt");
+  const text = await fs.readFile(filePath, "utf8");
+  res.set("Content-Type", "text/plain").send(text);
+});
+
 app.listen(process.env.PORT || port, () => {
   console.log(`Server running at http://localhost:${port}/`);
 });
