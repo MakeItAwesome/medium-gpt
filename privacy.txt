@@ -1,0 +1,27 @@
+**Privacy Policy for Medium Mastermind**
+
+_Last Updated: November 11, 2023_
+
+**1. Introduction**
+Welcome to Medium Mastermind. This Privacy Policy explains our practices regarding the collection, use, and disclosure of information that we receive through our service.
+
+**2. Information Collection and Use**
+Medium Mastermind does not store or collect any personal data from its users. However, our service is built upon ChatGPT and integrates with Medium.com, and therefore any interaction with our service is subject to the data collection and use policies of ChatGPT and Medium.com. We encourage you to review their policies for more information.
+
+**3. Data Storage and Security**
+As Medium Mastermind does not collect or store user data, we do not have data storage and security practices. For information on how ChatGPT and Medium.com store and secure your data, please refer to their respective privacy policies.
+
+**4. Sharing of Data**
+Medium Mastermind does not share any user data as we do not collect or store it. Data sharing practices are governed by the policies of ChatGPT and Medium.com.
+
+**5. User Rights**
+Since we do not collect user data, Medium Mastermind does not directly handle requests regarding user data rights. Such requests should be directed to ChatGPT or Medium.com, depending on where the data resides.
+
+**6. Changes to This Privacy Policy**
+This Privacy Policy may be updated periodically. We will not notify users of these changes directly as we do not hold contact information. Users are encouraged to review this policy periodically via GPT's user interface.
+
+**7. Compliance with Medium.com and ChatGPT Terms**
+Users of Medium Mastermind must adhere to the terms and service agreements of both Medium.com and ChatGPT. Medium Mastermind cannot be held liable for any violations of these terms.
+
+**8. Contact Information**
+For any questions about this Privacy Policy, please contact us at mediumgptplugin@gmail.com.
