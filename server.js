@@ -10,8 +10,38 @@ var jsonParser = bodyParser.json()
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.get("/", (req, res) => {
-  res.send("Hello, World!");
+  res.send("Hello, please use this ChatGPT plugin at https://chat.openai.com/");
 });
+
+// Route for OAuth redirection to Medium's authorization endpoint with query parameters
+app.get("/oauth/authorize", (req, res) => {
+  // Extracting required query parameters from the incoming request
+  const clientId = req.query.client_id;
+  const scope = req.query.scope;
+  const state = req.query.state;
+  const responseType = req.query.response_type;
+  const redirectUri = req.query.redirect_uri;
+
+  // Validating that all required parameters are present
+  if (!clientId || !scope || !state || !responseType || !redirectUri) {
+    return res.status(400).send("Missing required query parameters");
+  }
+
+  // Constructing the Medium OAuth URL with the provided query parameters
+  const mediumOAuthURL = `https://medium.com/m/oauth/authorize?client_id=${clientId}&scope=${scope}&state=${state}&response_type=${responseType}&redirect_uri=${encodeURIComponent(redirectUri)}`;
+
+  // Redirecting to Medium's OAuth URL
+  res.redirect(mediumOAuthURL);
+});
+
+// // Route for OAuth redirection to Medium's authorization endpoint
+// app.get("/oauth/authorize", (req, res) => {
+//   // Construct the query string from incoming query parameters
+//   const query = new URLSearchParams(req.query).toString();
+
+//   // Redirect to Medium's OAuth authorization endpoint with the query parameters
+//   res.redirect(`https://medium.com/m/oauth/authorize?${query}`);
+// });
 
 app.post("/tokens", urlencodedParser, async (req, res) => {
   const params = req.params;
