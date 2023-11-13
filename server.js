@@ -37,7 +37,12 @@ app.get("/oauth/authorize", (req, res) => {
 app.post("/tokens", urlencodedParser, async (req, res) => {
   const params = req.params;
   const payload = req.body;
-  const headers = req.headers;
+  const headers = {
+    Host: "api.medium.com",
+    "Content-Type": "application/x-www-form-urlencoded",
+    Accept: "application/json",
+    "Accept-Charset": "utf-8",
+  };
   console.log("request headers:", req.headers);
 
   try {
@@ -52,6 +57,7 @@ app.post("/tokens", urlencodedParser, async (req, res) => {
     response.data.token_type = "bearer";
     res.status(200).json(response.data);
   } catch (error) {
+    console.log("error:", error);
     res.status(error.response?.status || 500).json(error.response?.data || {});
   }
 });
