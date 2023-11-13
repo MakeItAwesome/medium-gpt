@@ -38,6 +38,7 @@ app.post("/tokens", urlencodedParser, async (req, res) => {
   const params = req.params;
   const payload = req.body;
   const headers = req.headers;
+  console.log("request headers:", req.headers);
 
   try {
     const response = await axios.post(
@@ -45,6 +46,7 @@ app.post("/tokens", urlencodedParser, async (req, res) => {
         headers,
       }
     );
+    console.log("successful response status:", response.status)
     const expires_in_millis = response.data.expires_at - Date.now();
     response.data.expires_in = expires_in_millis / 1000; // chat GPT wants the expires_in to be in seconds
     response.data.token_type = "bearer";
