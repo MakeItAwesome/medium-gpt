@@ -34,19 +34,11 @@ app.get("/oauth/authorize", (req, res) => {
   res.redirect(mediumOAuthURL);
 });
 
-// // Route for OAuth redirection to Medium's authorization endpoint
-// app.get("/oauth/authorize", (req, res) => {
-//   // Construct the query string from incoming query parameters
-//   const query = new URLSearchParams(req.query).toString();
-
-//   // Redirect to Medium's OAuth authorization endpoint with the query parameters
-//   res.redirect(`https://medium.com/m/oauth/authorize?${query}`);
-// });
-
 app.post("/tokens", urlencodedParser, async (req, res) => {
   const params = req.params;
   const payload = req.body;
   const headers = req.headers;
+  headers = { ...headers, "Content-Type": "application/x-www-form-urlencoded" };
 
   try {
     const response = await axios.post(
