@@ -38,7 +38,6 @@ app.post("/tokens", urlencodedParser, async (req, res) => {
   const params = req.params;
   const payload = req.body;
   const headers = req.headers;
-  headers = { ...headers, "Content-Type": "application/x-www-form-urlencoded" };
 
   try {
     const response = await axios.post(
